@@ -1,0 +1,115 @@
+:root {
+  --paper: #f3eee4;
+  --ink: #14233d;
+  --wine: #68101c;
+  --gold: #9b7b3f;
+  --muted: #766e62;
+  --line: rgba(20, 35, 61, .24);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .2;
+  z-index: 9;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.hero { min-height: 100svh; display: grid; grid-template-columns: minmax(560px, 54%) 1fr; }
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  min-height: 100svh;
+  padding: clamp(28px, 4vw, 64px) clamp(32px, 6.3vw, 104px) 34px;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+}
+
+.brand { color: var(--wine); display: inline-flex; align-items: center; gap: 13px; text-decoration: none; }
+.brand__mark { width: 29px; height: 39px; fill: none; stroke: var(--gold); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.brand__name { display: block; font-size: 22px; letter-spacing: .25em; text-transform: uppercase; line-height: 1; }
+.brand__motto { display: block; margin-top: 8px; font-family: Arial, sans-serif; color: var(--gold); font-size: 8px; letter-spacing: .3em; text-transform: uppercase; }
+
+.hero__copy { margin: auto 0; max-width: 690px; padding: clamp(48px, 7vh, 92px) 0 36px; }
+h1 { font-weight: 400; font-size: clamp(64px, 6.7vw, 112px); line-height: .9; letter-spacing: -.055em; margin: 0; }
+h1 span { color: var(--wine); }
+.intro { max-width: 610px; margin: clamp(30px, 4vh, 52px) 0 0; font-size: clamp(17px, 1.25vw, 21px); line-height: 1.55; }
+.intro::after { content: ""; display: block; width: 72px; height: 1px; margin-top: 28px; background: var(--gold); }
+
+.signup { margin-top: clamp(28px, 4vh, 42px); max-width: 610px; }
+.signup label { display: block; margin-bottom: 15px; font-size: clamp(20px, 1.65vw, 28px); }
+.signup__controls { display: flex; height: 58px; }
+.signup input { min-width: 0; flex: 1; border: 1px solid var(--line); border-right: 0; border-radius: 7px 0 0 7px; padding: 0 20px; color: var(--ink); background: rgba(255,255,255,.52); font: 16px Georgia, serif; outline: none; }
+.signup input::placeholder { color: #8d887f; }
+.signup input:focus { box-shadow: inset 0 0 0 2px var(--gold); }
+.signup input[aria-invalid="true"] { box-shadow: inset 0 0 0 2px var(--wine); }
+.signup button { width: 170px; border: 1px solid var(--wine); border-radius: 0 7px 7px 0; color: #fff9ef; background: var(--wine); font: 17px Georgia, serif; cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.signup button:hover { background: #7d1826; }
+.signup button:active { transform: translateY(1px); }
+.signup button:focus-visible, .brand:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+.form-message { min-height: 20px; margin: 8px 0 0; color: var(--wine); font: 13px Arial, sans-serif; }
+.form-message.is-success { color: #3e633f; }
+
+.themes { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--muted); font-style: italic; font-size: 14px; }
+.themes i { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
+
+.hero__visual { position: relative; min-height: 100svh; overflow: hidden; background: #e6ded0; }
+.hero__visual::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 14%; z-index: 1; background: linear-gradient(90deg, var(--paper), transparent); pointer-events: none; }
+.hero__visual img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 56% center; animation: settle 1.3s cubic-bezier(.2,.75,.25,1) both; }
+.opening { position: absolute; z-index: 2; top: clamp(38px, 5.5vw, 80px); left: 50%; transform: translateX(-50%); width: min(80%, 360px); display: flex; align-items: center; gap: 18px; white-space: nowrap; color: #574a38; font-size: 17px; }
+.opening span { flex: 1; height: 1px; background: var(--gold); }
+.opening em { font-weight: 400; }
+.hero__visual blockquote { position: absolute; z-index: 2; left: 8%; top: 31%; margin: 0; color: rgba(69,58,43,.74); font-size: 18px; line-height: 1.45; font-style: italic; transform: rotate(-4deg); }
+
+@keyframes settle { from { opacity: 0; transform: scale(1.035); } to { opacity: 1; transform: scale(1); } }
+
+@media (max-width: 1000px) {
+  .hero { grid-template-columns: 58% 42%; }
+  .hero__content { padding-left: 42px; padding-right: 42px; }
+  h1 { font-size: clamp(58px, 7.9vw, 80px); }
+  .hero__visual blockquote { display: none; }
+}
+
+@media (max-width: 760px) {
+  .hero { display: block; position: relative; min-height: 100svh; }
+  .hero__visual { position: absolute; inset: 0; min-height: 100%; }
+  .hero__visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(243,238,228,.95) 0%, rgba(243,238,228,.9) 52%, rgba(243,238,228,.72) 100%); }
+  .hero__visual::before { width: 100%; background: linear-gradient(90deg, var(--paper), rgba(243,238,228,.25)); }
+  .hero__visual img { object-position: 64% center; }
+  .opening { display: none; }
+  .hero__content { background: transparent; padding: 24px 22px 20px; }
+  .brand__name { font-size: 18px; }
+  .brand__motto { font-size: 6.5px; }
+  .hero__copy { width: min(100%, 350px); padding: 52px 0 22px; }
+  h1 { font-size: clamp(48px, 13vw, 62px); line-height: .93; letter-spacing: -.06em; }
+  .intro { margin-top: 28px; font-size: 16px; line-height: 1.5; }
+  .intro::after { margin-top: 22px; }
+  .signup { margin-top: 24px; }
+  .signup label { font-size: 20px; }
+  .signup__controls { height: auto; flex-direction: column; gap: 9px; }
+  .signup input, .signup button { flex: none; width: 100%; height: 52px; border: 1px solid var(--line); border-radius: 5px; }
+  .signup button { border-color: var(--wine); }
+  .themes { flex-wrap: wrap; font-size: 12px; gap: 8px; }
+}
+
+@media (max-width: 440px) {
+  .hero__copy { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; } }
