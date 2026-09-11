@@ -22,32 +22,22 @@ form.addEventListener('submit', async (event) => {
     return;
   }
 
-  const config = window.CALAMELLE_CONFIG || {};
-  if (!config.supabaseUrl || !config.supabaseAnonKey) {
-    showMessage('L’inscription sera disponible très prochainement.');
-    return;
-  }
-
   email.removeAttribute('aria-invalid');
   button.disabled = true;
   button.textContent = 'Envoi…';
 
   try {
-    const response = await fetch(`${config.supabaseUrl}/rest/v1/waitlist`, {
+    const response = await fetch('/api/subscribe', {
       method: 'POST',
       headers: {
-        apikey: config.supabaseAnonKey,
-        Authorization: `Bearer ${config.supabaseAnonKey}`,
-        'Content-Type': 'application/json',
-        Prefer: 'return=minimal'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email: email.value.trim().toLowerCase(),
-        source: 'landing-page'
+        email: email.value.trim().toLowerCase()
       })
     });
 
-    if (!response.ok && response.status !== 409) throw new Error(`Supabase: ${response.status}`);
+    if (!response.ok) throw new Error(`Inscription: ${response.status}`);
 
     showMessage('Merci — nous vous écrirons dès l’ouverture de Calamelle.', true);
     form.reset();
