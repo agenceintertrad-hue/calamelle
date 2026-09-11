@@ -51,6 +51,7 @@ h1 span { color: var(--wine); }
 .intro::after { content: ""; display: block; width: 72px; height: 1px; margin-top: 28px; background: var(--gold); }
 
 .signup { margin-top: clamp(28px, 4vh, 42px); max-width: 610px; }
+.signup__trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .signup label { display: block; margin-bottom: 15px; font-size: clamp(20px, 1.65vw, 28px); }
 .signup__controls { display: flex; height: 58px; }
 .signup input { min-width: 0; flex: 1; border: 1px solid var(--line); border-right: 0; border-radius: 7px 0 0 7px; padding: 0 20px; color: var(--ink); background: rgba(255,255,255,.52); font: 16px Georgia, serif; outline: none; }
@@ -60,6 +61,7 @@ h1 span { color: var(--wine); }
 .signup button { width: 170px; border: 1px solid var(--wine); border-radius: 0 7px 7px 0; color: #fff9ef; background: var(--wine); font: 17px Georgia, serif; cursor: pointer; transition: background .2s ease, transform .2s ease; }
 .signup button:hover { background: #7d1826; }
 .signup button:active { transform: translateY(1px); }
+.signup button:disabled { cursor: wait; opacity: .72; }
 .signup button:focus-visible, .brand:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 .form-message { min-height: 20px; margin: 8px 0 0; color: var(--wine); font: 13px Arial, sans-serif; }
 .form-message.is-success { color: #3e633f; }

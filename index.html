@@ -24,6 +24,10 @@
 
         <form class="signup" id="signup-form" novalidate>
           <label for="email">Soyez parmi les premiers informés.</label>
+          <div class="signup__trap" aria-hidden="true">
+            <label for="website">Votre site web</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </div>
           <div class="signup__controls">
             <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Votre adresse e-mail" aria-describedby="form-message" required>
             <button type="submit">Me prévenir</button>
@@ -43,6 +47,7 @@
       <blockquote>« Une langue<br>ouvre des mondes. »</blockquote>
     </aside>
   </main>
+  <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
