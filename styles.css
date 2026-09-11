@@ -41,10 +41,8 @@ body::before {
   background: var(--paper);
 }
 
-.brand { color: var(--wine); display: inline-flex; align-items: center; gap: 13px; text-decoration: none; }
-.brand__mark { width: 29px; height: 39px; fill: none; stroke: var(--gold); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.brand__name { display: block; font-size: 22px; letter-spacing: .25em; text-transform: uppercase; line-height: 1; }
-.brand__motto { display: block; margin-top: 8px; font-family: Arial, sans-serif; color: var(--gold); font-size: 8px; letter-spacing: .3em; text-transform: uppercase; }
+.brand { display: block; width: 132px; height: 105px; overflow: hidden; text-decoration: none; }
+.brand img { display: block; width: 132px; height: 132px; object-fit: cover; transform: translateY(-13px); mix-blend-mode: multiply; }
 
 .hero__copy { margin: auto 0; max-width: 690px; padding: clamp(48px, 7vh, 92px) 0 36px; }
 h1 { font-weight: 400; font-size: clamp(64px, 6.7vw, 112px); line-height: .9; letter-spacing: -.055em; margin: 0; }
@@ -94,8 +92,8 @@ h1 span { color: var(--wine); }
   .hero__visual img { object-position: 64% center; }
   .opening { display: none; }
   .hero__content { background: transparent; padding: 24px 22px 20px; }
-  .brand__name { font-size: 18px; }
-  .brand__motto { font-size: 6.5px; }
+  .brand { width: 108px; height: 86px; }
+  .brand img { width: 108px; height: 108px; transform: translateY(-11px); }
   .hero__copy { width: min(100%, 350px); padding: 52px 0 22px; }
   h1 { font-size: clamp(48px, 13vw, 62px); line-height: .93; letter-spacing: -.06em; }
   .intro { margin-top: 28px; font-size: 16px; line-height: 1.5; }
